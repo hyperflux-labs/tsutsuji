@@ -1,3 +1,3 @@
-[submodule "libhyperflux/lib/HAPIH"]
+[submodule "HAPIH"]
 	path = libhyperflux/lib/HAPIH
 	url = https://github.com/mgostIH/HAPIH-2

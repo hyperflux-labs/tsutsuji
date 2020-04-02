@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Net;
@@ -37,7 +36,6 @@ namespace Tsutsuji.Updater.Screens
             "HyperfluxGMD.exe",
             "steam_api.dll"
         };
-
 
         public Updater(string type)
         {

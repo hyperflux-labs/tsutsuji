@@ -12,7 +12,6 @@ namespace Tsutsuji.Launcher.Screens
 {
     public partial class Main : Form
     {
-
         [DllImport("user32.dll")]
         static extern IntPtr SetWindowText(IntPtr hWnd, string windowName);
 
@@ -57,7 +56,6 @@ namespace Tsutsuji.Launcher.Screens
                     // attempt injection
                     // disable injection for now
                     //injector.Inject(Path.Combine(Directory.GetCurrentDirectory(), @"libhyperflux.dll"));
-
                 }
                 catch (Win32Exception er)
                 {

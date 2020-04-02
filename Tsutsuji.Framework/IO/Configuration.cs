@@ -24,8 +24,9 @@ namespace Tsutsuji.Framework.IO
             }
         }
 
-        public Configuration() {
-
+        public Configuration()
+        {
+            return;
         }
 
         public Configuration(string file, BaseConfiguration baseConfiguration = null)
@@ -116,7 +117,6 @@ namespace Tsutsuji.Framework.IO
 
             return;
         }
-
 
         // Categories
         public void AddCategory(string category)

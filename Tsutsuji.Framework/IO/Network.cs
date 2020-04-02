@@ -9,6 +9,9 @@ namespace Tsutsuji.Framework.IO
 {
     public class Network
     {
-
+        public Network()
+        {
+            return;
+        }
     }
 }

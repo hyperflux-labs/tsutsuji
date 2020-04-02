@@ -1,0 +1,8 @@
+.idea/*
+.git/*
+.vs/*
+
+obj/*
+bin/*
+Debug/*
+packages/*

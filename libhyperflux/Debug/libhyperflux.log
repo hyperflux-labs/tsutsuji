@@ -1,3 +1,0 @@
-﻿  dllmain.cpp
-C:\Users\Vert\source\repos\Tsutsuji\libhyperflux\lib\HAPIH\HAPIH.h(61,54): warning C4018: '<': signed/unsigned mismatch
-  libhyperflux.vcxproj -> C:\Users\Vert\source\repos\Tsutsuji\Debug\libhyperflux.dll

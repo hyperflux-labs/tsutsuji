@@ -33,6 +33,8 @@ namespace Tsutsuji.Launcher.Screens
         private void InitializeComponent()
         {
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.Button();
+            this.RecentlyRated = new System.Windows.Forms.RichTextBox();
             this.LoginButton = new System.Windows.Forms.Button();
             this.RunButton = new System.Windows.Forms.Button();
             this.Username = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@ namespace Tsutsuji.Launcher.Screens
             this.TwitterButton = new System.Windows.Forms.Button();
             this.YoutubeButton = new System.Windows.Forms.Button();
             this.DiscordButton = new System.Windows.Forms.Button();
-            this.RecentlyRated = new System.Windows.Forms.RichTextBox();
-            this.SettingsButton = new System.Windows.Forms.Button();
             this.ControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,26 @@ namespace Tsutsuji.Launcher.Screens
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(177, 434);
             this.ControlPanel.TabIndex = 0;
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Location = new System.Drawing.Point(50, 333);
+            this.SettingsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(75, 22);
+            this.SettingsButton.TabIndex = 4;
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // RecentlyRated
+            // 
+            this.RecentlyRated.Location = new System.Drawing.Point(19, 28);
+            this.RecentlyRated.Name = "RecentlyRated";
+            this.RecentlyRated.ReadOnly = true;
+            this.RecentlyRated.Size = new System.Drawing.Size(142, 268);
+            this.RecentlyRated.TabIndex = 3;
+            this.RecentlyRated.Text = "";
             // 
             // LoginButton
             // 
@@ -140,25 +160,7 @@ namespace Tsutsuji.Launcher.Screens
             this.DiscordButton.TabIndex = 5;
             this.DiscordButton.Text = "Discord";
             this.DiscordButton.UseVisualStyleBackColor = true;
-            // 
-            // RecentlyRated
-            // 
-            this.RecentlyRated.Location = new System.Drawing.Point(19, 28);
-            this.RecentlyRated.Name = "RecentlyRated";
-            this.RecentlyRated.ReadOnly = true;
-            this.RecentlyRated.Size = new System.Drawing.Size(142, 268);
-            this.RecentlyRated.TabIndex = 3;
-            this.RecentlyRated.Text = "this gay level got rated (2*)";
-            // 
-            // SettingsButton
-            // 
-            this.SettingsButton.Location = new System.Drawing.Point(50, 333);
-            this.SettingsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(75, 22);
-            this.SettingsButton.TabIndex = 4;
-            this.SettingsButton.Text = "Settings";
-            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.DiscordButton.Click += new System.EventHandler(this.DiscordButton_Click);
             // 
             // Main
             // 

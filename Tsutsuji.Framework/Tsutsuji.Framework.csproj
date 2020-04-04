@@ -48,6 +48,7 @@
     <Compile Include="IO\Configuration.cs" />
     <Compile Include="IO\Injection\DllInjector.cs" />
     <Compile Include="IO\Network.cs" />
+    <Compile Include="IO\Steam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

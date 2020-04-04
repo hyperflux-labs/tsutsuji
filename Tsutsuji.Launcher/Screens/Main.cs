@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Tsutsuji.Framework.Encoding;
 using Reloaded.Injector;
+using System.Net.Http;
 
 namespace Tsutsuji.Launcher.Screens
 {
@@ -28,6 +29,26 @@ namespace Tsutsuji.Launcher.Screens
                 loginDetails = this.CheckLogin();
                 Debug.WriteLine(loginDetails[0]);
                 this.Username.Text = "Hello, " + loginDetails[0] + "!";
+            }
+
+            // new rating loader
+
+            SetRatings();
+        }
+
+        private async void SetRatings() {
+            using (HttpClient webClient = new HttpClient())
+            {
+                webClient.BaseAddress = new Uri("https://api.hyperflux.moe/");
+                var request =
+                    new HttpRequestMessage(HttpMethod.Get, "/launcher/recent");
+
+                using (HttpResponseMessage response = await webClient.SendAsync(request))
+                using (StreamReader reader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                {
+                    string text = reader.ReadToEnd();
+                    RecentlyRated.Lines = text.Split(',');
+                }
             }
         }
 
@@ -93,6 +114,18 @@ namespace Tsutsuji.Launcher.Screens
                     this.Username.Text = "Hello, " + loginDetails[0];
                 }
             };
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            Settings settingsScreen = new Settings();
+            settingsScreen.Show();
+        }
+
+        // buttons
+        private void DiscordButton_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://discord.gg/7r3sfJR");
         }
     }
 }

@@ -17,6 +17,9 @@ namespace Tsutsuji.Launcher
         [STAThread]
         static void Main()
         {
+            Debug.WriteLine(Steam.InstallDir());
+            Debug.WriteLine(Steam.AppDir(322170));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -24,7 +27,7 @@ namespace Tsutsuji.Launcher
                 Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "data"));
             }
 
-            Configuration config = new Configuration(Path.Combine(Directory.GetCurrentDirectory(), @"data\program.hfcfg"), SetupBaseConfiguration());
+            Configuration config = new Configuration(Path.Combine(Directory.GetCurrentDirectory(), @"data\program.ini"), SetupBaseConfiguration());
 
             Application.Run(new Main());
         }

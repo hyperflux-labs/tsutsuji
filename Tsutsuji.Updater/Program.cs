@@ -3,14 +3,15 @@ using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Tsutsuji.Updater.Screens;
+using Tsutsuji.Framework.IO;
 
 namespace Tsutsuji.Updater
 {
     static class Program
     {
-        public static string HyperfluxPath = @"C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash\_hyperflux";
+        public static string HyperfluxPath = Path.Combine(Steam.AppDir(322170), @"_hyperflux");
         public static string HyperfluxResourcesPath = HyperfluxPath + @"\Resources";
-        public static string GeometryDashPath = @"C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash";
+        public static string GeometryDashPath = Steam.AppDir(322170);
 
         /// <summary>
         /// The main entry point for the application.

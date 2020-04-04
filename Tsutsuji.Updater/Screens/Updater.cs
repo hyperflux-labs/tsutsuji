@@ -9,13 +9,14 @@ using Tsutsuji.Framework;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
+using Tsutsuji.Framework.IO;
 
 namespace Tsutsuji.Updater.Screens
 {
     public partial class Updater : Form
     {
         private Queue<string> _items = new Queue<string>();
-        private static string hyperfluxPath = @"C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash\_hyperflux";
+        private static string hyperfluxPath = Path.Combine(Steam.AppDir(322170), "_hyperflux");
         private static readonly string[] necessaryFiles =
         {
             "fmod.dll",
@@ -73,7 +74,7 @@ namespace Tsutsuji.Updater.Screens
 
             foreach (var filename in necessaryFiles)
             {
-                var file = Path.Combine(@"C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash\", filename);
+                var file = Path.Combine(Steam.AppDir(322170), filename);
                 var fileName = Path.GetFileName(file);
 
                 var destFile = Path.Combine(Program.HyperfluxPath, fileName);
@@ -118,7 +119,7 @@ namespace Tsutsuji.Updater.Screens
         private void RunUpdate()
         {
             int current = 0;
-            var request = WebRequest.Create(@"http://api.hyperflux.moe/rel/checksum");
+            var request = WebRequest.Create(@"https://api.hyperflux.moe/rel/checksum");
             request.ContentType = "application/json; charset=utf-8";
 
             using (var response = request.GetResponse())
@@ -173,7 +174,7 @@ namespace Tsutsuji.Updater.Screens
 
                     var file = _items.Dequeue();
                     UpdateContents(file);
-                    webClient.DownloadFileAsync(new Uri(@"http://api.hyperflux.moe/rel/file?f=" + file), Path.Combine(hyperfluxPath, file));
+                    webClient.DownloadFileAsync(new Uri(@"https://api.hyperflux.moe/rel/file?f=" + file), Path.Combine(hyperfluxPath, file));
                     return;
                 }
 

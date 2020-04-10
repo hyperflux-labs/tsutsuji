@@ -46,6 +46,7 @@
     <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="IO\BaseConfiguration.cs" />
     <Compile Include="IO\Configuration.cs" />
+    <Compile Include="IO\DRM\DrmCore.cs" />
     <Compile Include="IO\Injection\DllInjector.cs" />
     <Compile Include="IO\Network.cs" />
     <Compile Include="IO\Steam.cs" />

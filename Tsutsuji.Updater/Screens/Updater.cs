@@ -35,7 +35,8 @@ namespace Tsutsuji.Updater.Screens
 
         private static readonly string[] hyperfluxGmd = {
             "HyperfluxGMD.exe",
-            "steam_api.dll"
+            "steam_api.dll",
+            "Resources/GJ_GameSheet-uhd.png"
         };
 
         public Updater(string type)
@@ -121,17 +122,32 @@ namespace Tsutsuji.Updater.Screens
             int current = 0;
             var request = WebRequest.Create(@"https://api.hyperflux.moe/rel/checksum");
             request.ContentType = "application/json; charset=utf-8";
+            request.Headers.Add("hyperflux-auth", "Hyperflux Launcher" + Program.version);
 
             using (var response = request.GetResponse())
             {
                 using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                 {
                     JObject obj = JObject.Parse(sr.ReadToEnd());
+                    Debug.WriteLine(obj["code"].ToString());
+
+                    if (obj["code"].ToString() == "-1")
+                    {
+                        DialogResult dialog = MessageBox.Show("This version of the launcher is out of date! Head to GitHub to get a newer version.", "Tsutsuji Launcher",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (dialog == DialogResult.OK)
+                        {
+                            Application.Exit();
+                            return;
+                        }
+                    }
 
                     Checksum[] checksums =
                     {
                         new Checksum(obj["checksums"]["HyperfluxGMD.exe"].ToString()),
-                        new Checksum(obj["checksums"]["steam_api.dll"].ToString())
+                        new Checksum(obj["checksums"]["steam_api.dll"].ToString()),
+                        new Checksum(obj["checksums"]["Resources/GJ_GameSheet-uhd.png"].ToString())
                     };
 
                     foreach (Checksum checksum in checksums)

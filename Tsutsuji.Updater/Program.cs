@@ -12,6 +12,7 @@ namespace Tsutsuji.Updater
         public static string HyperfluxPath = Path.Combine(Steam.AppDir(322170), @"_hyperflux");
         public static string HyperfluxResourcesPath = HyperfluxPath + @"\Resources";
         public static string GeometryDashPath = Steam.AppDir(322170);
+        public static string version = " u0.0.2";
 
         /// <summary>
         /// The main entry point for the application.
@@ -19,7 +20,7 @@ namespace Tsutsuji.Updater
         [STAThread]
         static void Main(string[] args)
         {
-            if (args.Length < 1 || args[0] != "--launcher")
+            /*if (args.Length < 1 || args[0] != "--launcher")
             {
                 DialogResult dialog = MessageBox.Show("You cannot properly run the updater executable by itself.", "Tsutsuji Launcher",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -29,7 +30,7 @@ namespace Tsutsuji.Updater
                     Application.Exit();
                     return;
                 }
-            }
+            }*/
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
